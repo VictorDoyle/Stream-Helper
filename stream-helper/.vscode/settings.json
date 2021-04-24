@@ -1,0 +1,26 @@
+{
+  "peacock.color": "#0de435",
+  "cSpell.words": [
+    "ALLMOVIES",
+    "usermovierecommendations"
+  ],
+  "cSpell.ignoreWords": [
+    "lastmovie"
+  ],
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#31f355",
+    "activityBar.activeBorder": "#8368f6",
+    "activityBar.background": "#31f355",
+    "activityBar.foreground": "#15202b",
+    "activityBar.inactiveForeground": "#15202b99",
+    "activityBarBadge.background": "#8368f6",
+    "activityBarBadge.foreground": "#15202b",
+    "statusBar.background": "#0de435",
+    "statusBar.foreground": "#15202b",
+    "statusBarItem.hoverBackground": "#0ab42a",
+    "titleBar.activeBackground": "#0de435",
+    "titleBar.activeForeground": "#15202b",
+    "titleBar.inactiveBackground": "#0de43599",
+    "titleBar.inactiveForeground": "#15202b99"
+  }
+}

@@ -1,0 +1,101 @@
+.homepageTutorial {
+    position: absolute;
+    color: whitesmoke !important;
+    top: 45vh;
+    left: 5vh;
+}
+
+
+/* IPHONE 5  */
+
+@media only screen and (max-device-width : 375px) and (max-height: 570px) {
+    body {
+        min-height: 100vh;
+        min-height: -webkit-fill-available;
+      }
+      
+      html {
+        height: -webkit-fill-available;
+        width: -webkit-fill-available;
+      }
+
+      .homepageTutorial {
+        top: 45vh;
+        left: 5vh;
+    }
+
+    .homepageTutorial h3 {
+        font-size: 15px;
+    }
+  
+
+    
+}
+
+/* IPHONE 6/7/8 */
+
+@media only screen and (min-device-width : 375px) and (min-height: 600px) and (max-height: 768px) {
+
+    .homepageTutorial {
+        top: 35vh;
+        left: 3vh;
+        width: 250px;
+    }
+
+    .homepageTutorial h3 {
+        font-size: 15px;
+    }
+
+
+}
+
+/* IPHONE X */
+
+@media only screen and (min-device-width : 375px) and (min-height: 768px) and (max-height: 820px) {
+ 
+    .homepageTutorial {
+        top: 45vh;
+        left: 3vh;
+        width: 350px;
+    }
+
+    .homepageTutorial h3 {
+        font-size: 20px;
+    }
+
+}
+
+
+/* IPAD */
+
+@media only screen and (min-device-width : 700px) and (max-width: 800px) and (min-height: 900px) and (max-height: 1024px) {
+
+    .homepageTutorial {
+        top: 35vh;
+        left: 3vh;
+        width: 450px;
+    }
+
+    .homepageTutorial h3 {
+        font-size: 20px;
+    }
+
+
+}
+
+/* IPAD PRO / SMALL LAPTOP */
+
+
+@media only screen and (min-device-width : 1024px) and (max-width: 1200px)  {
+
+    .homepageTutorial {
+        top: 35vh;
+        left: 3vh;
+        width: 900px;
+    }
+
+    .homepageTutorial h3 {
+        font-size: 40px;
+    }
+  
+}

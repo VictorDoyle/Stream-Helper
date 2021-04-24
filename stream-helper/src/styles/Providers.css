@@ -1,0 +1,70 @@
+.providersContainer {
+  max-width: 40px;
+}
+.providersImage {
+  width: 44px;
+  padding: 4px;
+  border-radius: 30%;
+}
+.streamContainer {
+  display: flex;
+}
+.buyContainer {
+  display: flex;
+}
+
+.providerText {
+  margin-top: 7px;
+}
+
+
+
+/* IPHONE 5  */
+
+@media only screen and (max-device-width : 375px) and (max-height: 570px) {
+  body {
+      min-height: 100vh;
+      min-height: -webkit-fill-available;
+    }
+    
+    html {
+      height: -webkit-fill-available;
+      width: -webkit-fill-available;
+    }
+
+
+  
+}
+
+/* IPHONE 6/7/8 */
+
+@media only screen and (min-device-width : 375px) and (min-height: 600px) and (max-height: 768px) {
+
+
+
+}
+
+/* IPHONE X */
+
+@media only screen and (min-device-width : 375px) and (min-height: 768px) and (max-height: 820px) {
+
+
+
+}
+
+
+/* IPAD */
+
+@media only screen and (min-device-width : 700px) and (max-width: 800px) and (min-height: 900px) and (max-height: 1024px) {
+
+
+}
+
+/* IPAD PRO / SMALL LAPTOP */
+
+
+@media only screen and (min-device-width : 1024px) and (max-width: 1200px)  {
+
+
+}
+
