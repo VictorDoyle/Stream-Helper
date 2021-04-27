@@ -3,36 +3,34 @@ import React, { useState, useEffect } from "react";
 /* gql */
 import { useQuery } from "@apollo/client";
 import {
-  USERMOVIERECOMMENDATIONS,
   PROVIDERMOVIEQUERY,
   FILTEREDLENGTH,
 } from "../../graphql/operations.js";
 /* vendor imports */
 import InfiniteRecommendations from "../Infinite/InfiniteRecommendations";
 
-function HuluMovies({ providers }) {
+function HuluMovies() {
   const [userMovieRecommendations, setUserMovieRecommendations] = useState();
   /* base states */
   const [take] = useState(10);
   const [cursor, setCursor] = useState(1);
   const [skip, setSkip] = useState(0);
   const [provideridprop, setProvideridprop] = useState(15);
-  const [counter, setCounter] = useState(0);
   const [more, setMore] = useState(false);
   const { error, loading: loadingAll, data: dataAll, fetchMore } = useQuery(
     PROVIDERMOVIEQUERY,
-    /* { fetchPolicy: "no-cache" }, */
-
     {
       fetchPolicy: "network-only",
       variables: {
         providerMovieQueryTake: take,
         providerMovieQuerySkip: skip,
-        providerMovieQueryMyCursor: cursor,
-        providerMovieQueryProviderId: provideridprop,
+        providerMovieQueryMyCursor: parseInt(cursor),
+        providerMovieQueryProviderId: 15,
       },
     },
   );
+
+
 
   const { error: errorMore, loading: loadingMore, data: dataMore } = useQuery(
     FILTEREDLENGTH,
@@ -60,14 +58,23 @@ function HuluMovies({ providers }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loadingAll, dataAll]);
 
-  // useEffect(() => {
-  // });
+  useEffect(() => {
+    if (userMovieRecommendations && dataMore) {
+      if (userMovieRecommendations.length < dataMore.filterLength) {
+        setMore(true);
+      } else {
+        setMore(false);
+      }
+    }
+  }, []);
 
+  /* console.log(JSON.stringify(error, null, 2), "PARSED JSON ERR");
+ */
   const bigFetch = () => {
     fetchMore(
       {
         variables: {
-          userMovieRecommendationsMyCursor: userMovieRecommendations.length,
+          providerMovieQueryMyCursor: userMovieRecommendations.length,
         },
       },
       setCursor(
@@ -92,6 +99,7 @@ function HuluMovies({ providers }) {
           error={error}
           userMovieRecommendations={userMovieRecommendations}
           onLoadMore={bigFetch}
+          more={more}
         />
       ) : (
         <h1> There are No Movies To Load </h1>

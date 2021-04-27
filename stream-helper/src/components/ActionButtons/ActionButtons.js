@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { ToggleButton, Button, ToggleButtonGroup } from "react-bootstrap";
+import React from "react";
+import {  Button } from "react-bootstrap";
 import {
   Bookmark,
   HandThumbsUp,
@@ -7,10 +7,9 @@ import {
   Check2,
 } from "react-bootstrap-icons";
 import "../../styles/ActionButtons.css";
-import { useQuery, useMutation, gql } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import { USERUPDATE } from "../../graphql/operations";
-import Toasty from "../Toaster/toast";
-import { ToastContainer, toast } from "react-toastify";
+import {  toast } from "react-toastify";
 
 function ActionButtons(props) {
   const [update, { loading, error }] = useMutation(USERUPDATE);
@@ -44,23 +43,23 @@ function ActionButtons(props) {
     });
   };
 
-  const removeSaved = async () => {
+/*   const removeSaved = async () => {
     await update({
       variables: {
         addMovieToUserMovieId: props.currentMovieDetails.movie.id,
         addMovieToUserSaved: false,
       },
     });
-  };
+  }; */
 
-  const removeWatched = async () => {
+ /*  const removeWatched = async () => {
     await update({
       variables: {
         addMovieToUserMovieId: props.currentMovieDetails.movie.id,
         addMovieToUserWatched: false,
       },
     });
-  };
+  }; */
 
   const submitWatched = async (e) => {
     e.preventDefault();

@@ -1,12 +1,7 @@
-
 import "../../styles/ProfileMovieCard.css";
-import Toasty from "../Toaster/toast";
-import { ToastContainer, toast } from "react-toastify";
-import { useQuery, useMutation, gql } from "@apollo/client";
-import { USERUPDATE } from "../../graphql/operations";
-import { useState } from "react";
+import { toast } from "react-toastify";
+
 import { Link } from "react-router-dom";
-import { Container, Row } from 'react-bootstrap';
 toast.configure();
 
 function ProfileMovieCard(props) {
@@ -22,6 +17,7 @@ function ProfileMovieCard(props) {
           <img
             src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${props.image}`}
             className="profileMovieCardImage"
+            alt="movie card image in profile page"
           />
         </Link>
         <h3 className="profileMovieCardTitle">

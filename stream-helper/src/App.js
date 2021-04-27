@@ -3,11 +3,6 @@ import routes from './config/routes';
 import { userState } from "./recoil/atoms"
 import { useSetRecoilState } from "recoil"
 import Cookies from 'js-cookie';
-import { useEffect } from 'react';
-import LandingPage from './pages/LandingPage';
-/* testing */
-import { Redirect } from "react-router-dom";
-
 
 function App() {
   const setUser = useSetRecoilState(userState)

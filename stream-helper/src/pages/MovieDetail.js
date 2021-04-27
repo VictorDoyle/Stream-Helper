@@ -6,15 +6,6 @@ import { useQuery } from "@apollo/client";
 import { MOVIEDETAIL } from "../graphql/operations";
 /* vendor styles */
 import { Container, Row, Col, Spinner } from "react-bootstrap";
-import {
-  StarFill,
-  StarHalf,
-  Star,
-  Bookmark,
-  HandThumbsUp,
-  HandThumbsDown,
-  Check2,
-} from "react-bootstrap-icons";
 import StarRatings from "react-star-ratings";
 import "../styles/MovieDetail.css";
 import ActionButtons from "../components/ActionButtons/ActionButtons";

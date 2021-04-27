@@ -1,10 +1,4 @@
-import {
-  EyeSlash,
-  HandThumbsDown,
-  HeartFill,
-  XCircle,
-  XCircleFill,
-} from "react-bootstrap-icons";
+import { XCircleFill } from "react-bootstrap-icons";
 import "../../styles/MovieCard.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -18,7 +12,6 @@ toast.configure();
 
 function MovieCard(props) {
   const [isActive, setIsActive] = useState(false);
-  const [isInactive, setIsInactive] = useState(true);
   const [update, { loading, error }] = useMutation(USERUPDATE);
 
   const removeSaved = async () => {
@@ -49,7 +42,7 @@ function MovieCard(props) {
             onMouseEnter={() => {
               setIsActive(true);
             }}
-           
+            alt="movie poster image"
            
           />
         </Link>

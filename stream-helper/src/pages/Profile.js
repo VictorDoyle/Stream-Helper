@@ -10,13 +10,10 @@ import {
   Dropdown,
   ButtonGroup,
   Image,
-  Row,
-  Button,
 } from "react-bootstrap";
 import "../styles/Profile.css";
 import SavedMoviesModal from "../components/Modals/SavedMoviesModal";
 import EditUserModal from "../components/Modals/EditUserModal";
-import Forum from "../components/forum/Forum";
 import WatchedMoviesModal from "../components/Modals/WatchedMoviesModal";
 import DislikedMoviesModal from "../components/Modals/DislikedMoviesModal";
 /* GraphQl */
@@ -45,13 +42,11 @@ function Profile({ history }) {
     });
   };
   /* Hero Banner */
-
   const heroText =
     "Edit Your Profile Details Or View Some Of Your Curated Lists Below";
   useEffect(() => {
     if (!loading && data) {
       setUser(data.updateUser);
-      // history.push("/home");
     }
   }, [loading, data]);
 

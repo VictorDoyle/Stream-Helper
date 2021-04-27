@@ -3,21 +3,19 @@ import React, { useState, useEffect } from "react";
 /* gql */
 import { useQuery } from "@apollo/client";
 import {
-  USERMOVIERECOMMENDATIONS,
   PROVIDERMOVIEQUERY,
   FILTEREDLENGTH,
 } from "../../graphql/operations.js";
 /* vendor imports */
 import InfiniteRecommendations from "../Infinite/InfiniteRecommendations";
 
-function AmazonPrimeMovies({ providers }) {
+function AmazonPrimeMovies() {
   const [userMovieRecommendations, setUserMovieRecommendations] = useState();
   /* base states */
   const [take] = useState(10);
   const [cursor, setCursor] = useState(1);
   const [skip, setSkip] = useState(0);
   const [provideridprop, setProvideridprop] = useState(9);
-  const [counter, setCounter] = useState(0);
   const [more, setMore] = useState(false);
   const { error, loading: loadingAll, data: dataAll, fetchMore } = useQuery(
     PROVIDERMOVIEQUERY,
@@ -27,11 +25,18 @@ function AmazonPrimeMovies({ providers }) {
       variables: {
         providerMovieQueryTake: take,
         providerMovieQuerySkip: skip,
-        providerMovieQueryMyCursor: cursor,
+        providerMovieQueryMyCursor: parseInt(cursor),
         providerMovieQueryProviderId: provideridprop,
       },
     },
   );
+
+
+  useEffect(() => {
+    console.log('=====RENDERED!');
+    return () => console.log('====UNMOUNTED...');
+  }, []);
+
 
   const { error: errorMore, loading: loadingMore, data: dataMore } = useQuery(
     FILTEREDLENGTH,
@@ -58,6 +63,8 @@ function AmazonPrimeMovies({ providers }) {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loadingAll, dataAll]);
+
+
   useEffect(() => {
     if (userMovieRecommendations && dataMore) {
       if (userMovieRecommendations.length < dataMore.filterLength) {
@@ -66,13 +73,13 @@ function AmazonPrimeMovies({ providers }) {
         setMore(false);
       }
     }
-  });
+  }, []);
 
   const bigFetch = () => {
     fetchMore(
       {
         variables: {
-          userMovieRecommendationsMyCursor: userMovieRecommendations.length,
+          providerMovieQueryMyCursor: userMovieRecommendations.length,
         },
       },
       setCursor(
@@ -90,6 +97,7 @@ function AmazonPrimeMovies({ providers }) {
           error={error}
           userMovieRecommendations={userMovieRecommendations}
           onLoadMore={bigFetch}
+          more={more}
         />
       ) : (
         <h1> There are No Movies To Load </h1>

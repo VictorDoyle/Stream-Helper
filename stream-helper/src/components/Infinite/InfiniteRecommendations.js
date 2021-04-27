@@ -7,9 +7,9 @@ const InfiniteRecommendations = ({
   userMovieRecommendations,
   onLoadMore,
   error,
+  removeMovies,
   more,
 }) => {
-  const [hasMore, setHasMore] = useState(more);
   const Mapper = () => (
     <div className="movieCardContainer">
       {finalList.map((movie, i) => (
@@ -18,18 +18,24 @@ const InfiniteRecommendations = ({
     </div>
   );
 
+
+  
+  useEffect(() => {
+    return removeMovies;
+  }, []);
+
+
   let uniqueList = [...new Set(userMovieRecommendations)];
 
   let finalList = [...uniqueList];
 
-  console.log(more, "DOES INFINITE HAVE MORE?");
 
   return (
     <>
       {userMovieRecommendations ? (
         <InfiniteScroll
           dataLength={userMovieRecommendations.length}
-          hasMore={more}
+          hasMore={true}
           next={onLoadMore}
           className="scroll"
           loader={<h4>Loading...</h4>}

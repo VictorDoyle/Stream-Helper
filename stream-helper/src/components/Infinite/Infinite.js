@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React  from "react";
 import MovieCard from "../MovieCard/MovieCard";
 import InfiniteScroll from "react-infinite-scroll-component";
 import "../../styles/MovieCard.css";

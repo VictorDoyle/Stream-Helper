@@ -2,21 +2,19 @@ import React, { useState, useEffect } from "react";
 /* gql */
 import { useQuery } from "@apollo/client";
 import {
-  USERMOVIERECOMMENDATIONS,
   PROVIDERMOVIEQUERY,
   FILTEREDLENGTH,
 } from "../../graphql/operations.js";
 /* vendor imports */
 import InfiniteRecommendations from "../Infinite/InfiniteRecommendations";
 
-function HboMaxMovies({ providers }) {
+function HboMaxMovies() {
   const [userMovieRecommendations, setUserMovieRecommendations] = useState();
   /* base states */
   const [take] = useState(10);
   const [cursor, setCursor] = useState(1);
   const [skip, setSkip] = useState(0);
   const [provideridprop, setProvideridprop] = useState(384);
-  const [counter, setCounter] = useState(0);
   const [more, setMore] = useState(false);
   const { error, loading: loadingAll, data: dataAll, fetchMore } = useQuery(
     PROVIDERMOVIEQUERY,
@@ -28,14 +26,13 @@ function HboMaxMovies({ providers }) {
         providerMovieQueryTake: take,
         providerMovieQuerySkip: skip,
         providerMovieQueryMyCursor: parseInt(cursor),
-        providerMovieQueryProviderId: provideridprop,
+        providerMovieQueryProviderId: parseInt(384),
       },
     },
   );
 
-  const { error: errorMore, loading: loadingMore, data: dataMore } = useQuery(
+  const { error: errorMore, loading: loadingMore, data: dataMore} = useQuery(
     FILTEREDLENGTH,
-
     {
       variables: {
         filterLengthProviderId: 384,
@@ -50,19 +47,24 @@ function HboMaxMovies({ providers }) {
       );
       setUserMovieRecommendations(filteredMovies);
     }
-    console.log(userMovieRecommendations, "RECOMMENDATIONS");
     if (userMovieRecommendations) {
       setCursor(
         userMovieRecommendations[userMovieRecommendations.length - 1]
           .categoryId,
       );
-      console.log(cursor, "CURSOR");
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loadingAll, dataAll]);
 
+/*  TESTING:
+
   console.log(JSON.stringify(error, null, 2), "PARSED JSON ERR");
+  console.log(JSON.stringify(errorMore, null, 2), "PARSED JSON ERR");
+  console.log(dataMore, "--------") */
+
+
+
   useEffect(() => {
     if (userMovieRecommendations && dataMore) {
       if (userMovieRecommendations.length < dataMore.filterLength) {
@@ -71,13 +73,13 @@ function HboMaxMovies({ providers }) {
         setMore(false);
       }
     }
-  });
+  }, [dataMore]);
 
   const bigFetch = () => {
     fetchMore(
       {
         variables: {
-          userMovieRecommendationsMyCursor: userMovieRecommendations.length,
+          providerMovieQueryMyCursor: userMovieRecommendations.length,
         },
       },
       setCursor(

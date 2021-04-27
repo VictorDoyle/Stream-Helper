@@ -21,7 +21,7 @@ function SavedMovies({ history }) {
     if (!loading && data) {
       setSavedMovies(data);
     }
-  });
+  }, [loading, data]);
 
   const Mapper = () => (
     <>

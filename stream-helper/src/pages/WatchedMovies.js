@@ -22,7 +22,7 @@ function WatchedMovies({ history }) {
     if (!loading && data) {
       setWatchedMovies(data);
     }
-  }, [data]);
+  }, [data, loading]);
 
   const Mapper = () => (
     <>

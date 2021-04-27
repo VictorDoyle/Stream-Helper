@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Nav, Navbar } from "react-bootstrap";
+import { Nav } from "react-bootstrap";
 import { userState } from "../recoil/atoms";
 import { useRecoilState } from "recoil";
 /* components */
@@ -17,7 +17,6 @@ import NetflixMovies from "../components/providers/NetflixMovies";
 import { useQuery } from "@apollo/client";
 import {
   USERMOVIERECOMMENDATIONS,
-  PROVIDERMOVIEQUERY,
 } from "../graphql/operations";
 /* vendor imports */
 import InfiniteRecommendations from "../components/Infinite/InfiniteRecommendations";
@@ -35,8 +34,6 @@ function Movies({ history }) {
   const [skip, setSkip] = useState(0);
   const [providerfilter, setProviderfilter] = useState(false);
   const [providerid, setProviderid] = useState();
-  const [buttonhide, setButtonhide] = useState(false);
-  let counter = 0;
 
   const { loading: loadingAll, data: dataAll, fetchMore } = useQuery(
     USERMOVIERECOMMENDATIONS,
@@ -48,6 +45,8 @@ function Movies({ history }) {
       },
     },
   );
+
+
 
   useEffect(() => {
     if (loadingAll === false && dataAll) {
@@ -92,7 +91,7 @@ function Movies({ history }) {
           <Nav.Link
             onClick={() => {
               setProviderfilter(false);
-              setButtonhide(false);
+ 
             }}
             href="/movies"
           >
@@ -104,7 +103,7 @@ function Movies({ history }) {
             onClick={() => {
               setProviderid(8);
               setProviderfilter(true);
-              setButtonhide(true);
+      
             }}
             eventKey="link-1"
           >
@@ -112,6 +111,7 @@ function Movies({ history }) {
             <img
               src={`https://www.themoviedb.org/t/p/original/9A1JSVmSxsyaBK4SUFsYVqbAYfW.jpg`}
               className="providersImage"
+              alt="provider stream platform Icon"
             />
           </Nav.Link>
         </Nav.Item>
@@ -120,7 +120,7 @@ function Movies({ history }) {
             onClick={() => {
               setProviderid(384);
               setProviderfilter(true);
-              setButtonhide(true);
+     
             }}
             eventKey="link-2"
           >
@@ -128,6 +128,7 @@ function Movies({ history }) {
             <img
               src={`https://www.themoviedb.org/t/p/original/aS2zvJWn9mwiCOeaaCkIh4wleZS.jpg`}
               className="providersImage"
+              alt="provider stream platform Icon"
             />
           </Nav.Link>
         </Nav.Item>
@@ -136,7 +137,7 @@ function Movies({ history }) {
             onClick={() => {
               setProviderid(15);
               setProviderfilter(true);
-              setButtonhide(true);
+      
             }}
             eventKey="link-3"
           >
@@ -144,6 +145,7 @@ function Movies({ history }) {
             <img
               src={`https://www.themoviedb.org/t/p/original//giwM8XX4V2AQb9vsoN7yti82tKK.jpg`}
               className="providersImage"
+              alt="provider stream platform Icon"
             />
           </Nav.Link>
         </Nav.Item>
@@ -152,7 +154,7 @@ function Movies({ history }) {
             onClick={() => {
               setProviderid(9);
               setProviderfilter(true);
-              setButtonhide(true);
+      
             }}
             eventKey="link-4"
           >
@@ -160,6 +162,7 @@ function Movies({ history }) {
             <img
               src={`https://www.themoviedb.org/t/p/original/68MNrwlkpF7WnmNPXLah69CR5cb.jpg`}
               className="providersImage"
+              alt="provider stream platform Icon"
             />
           </Nav.Link>
         </Nav.Item>
@@ -168,7 +171,7 @@ function Movies({ history }) {
             onClick={() => {
               setProviderid(337);
               setProviderfilter(true);
-              setButtonhide(true);
+  
             }}
             eventKey="link-5"
           >
@@ -176,6 +179,7 @@ function Movies({ history }) {
             <img
               src={`https://www.themoviedb.org/t/p/original/dgPueyEdOwpQ10fjuhL2WYFQwQs.jpg`}
               className="providersImage"
+              alt="provider stream platform Icon"
             />
           </Nav.Link>
         </Nav.Item>

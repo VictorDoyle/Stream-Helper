@@ -32,7 +32,7 @@ function HeroBanner(props) {
         } else if(props.history.location.pathname === "/saved") {
             setCurrentBannerShow(savedPageHero)
         } else return console.log("banner check returned")
-    }, [currentBannerShow])
+    }, [currentBannerShow, props.history.location.pathname])
 
    
     return(

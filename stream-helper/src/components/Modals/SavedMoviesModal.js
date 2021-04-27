@@ -17,7 +17,10 @@ function SavedMoviesModal() {
       if (!loading && data) {
         setSavedMovies(data);
       }
-    });
+      if (error) {
+        return error
+      }
+    }, [loading, data]);
 
     
   

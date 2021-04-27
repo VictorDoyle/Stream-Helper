@@ -1,17 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 /* vendor imports */
 import { Link } from "react-router-dom";
 /* styling */
 import "../../styles/NavigationBar.css";
 import { Nav, Navbar } from "react-bootstrap";
-import { SearchPanel } from "react-search-panel";
+/* import { SearchPanel } from "react-search-panel"; */
 /* import userState from Recoil */
 import { userState } from "../../recoil/atoms";
 import { useRecoilState } from "recoil";
 
 function NavigationBar() {
   const [user, setUser] = useRecoilState(userState);
-  const [input, setInput] = React.useState("");
+
+  /* component reqs for Search Bar Feature */
+  
+/*   const [input, setInput] = React.useState("");
   const choices = [
     { key: "choice1", description: "A choice" },
     { key: "choice2", description: "Another choice" },
@@ -20,7 +23,7 @@ function NavigationBar() {
   const noChoiceItem = { key: "none", description: "None" };
   const [selectedChoices, setSelectedChoices] = useState(choices);
   const [, setSelectedKeys] = useState([]);
-
+ */
   return (
     <>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className="mainNavBar" sticky="top">
