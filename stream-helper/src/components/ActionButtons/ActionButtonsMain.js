@@ -73,13 +73,10 @@ function ActionButtonsMain(props) {
     });
   };
 
-  useEffect(() => {
-
-  } , [props.isActive])
 
   return (
     <>
-    {props.isActive === true ? 
+    
     <div className="mainActionButtons">
     <Button
       className="mainActionBox"
@@ -183,7 +180,7 @@ function ActionButtonsMain(props) {
       Dislike
     </Button>
   </div>
-    : <> </>}
+  
       
     </>
   );

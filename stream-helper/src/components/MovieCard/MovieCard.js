@@ -11,7 +11,6 @@ import ActionButtonsMain from "../ActionButtons/ActionButtonsMain";
 toast.configure();
 
 function MovieCard(props) {
-  const [isActive, setIsActive] = useState(false);
   const [update, { loading, error }] = useMutation(USERUPDATE);
 
   const removeSaved = async () => {
@@ -34,16 +33,12 @@ function MovieCard(props) {
 
   return (
     <>
-      <div className="movieCardMain">
+      <div className="movieCardMain" >
         <Link to={`/movie/${props.id}`}>
           <img
             src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${props.image}`}
             className="movieImageCard"
-            onMouseEnter={() => {
-              setIsActive(true);
-            }}
             alt="movie poster image"
-           
           />
         </Link>
         <h3 className="movieCardTitle">
@@ -53,7 +48,7 @@ function MovieCard(props) {
         {/* buttons */}
         {props.saved === true || props.liked === true || props.watched === true || props.disliked === true ? <> </> :
         <div className="movieButtonContainer">
-        <ActionButtonsMain {...props} isActive = {isActive}  />
+        <ActionButtonsMain {...props} />
         </div>
         }
       
@@ -82,7 +77,7 @@ function MovieCard(props) {
                   onClick={() => {
                     removeWatched();
                     removeSaved();
-                    setIsActive(false);
+                   
                     toast.warning(
                       "	🎥 Movie No Longer Marked as Watched or Saved",
                       {

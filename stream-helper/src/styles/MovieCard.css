@@ -26,10 +26,13 @@
   border-radius: 50px !important;
 }
 
+
+
 .movieButtonContainer {
   position: absolute;
   width: 300px !important;
   top: 76%;
+
 }
 
 
@@ -39,8 +42,9 @@
   height: 450px;
   grid-area: movieCard;
   border-radius: 12px;
- 
 }
+
+
 
 /* SECTION: Buttons */
 .discardMovieButton {
