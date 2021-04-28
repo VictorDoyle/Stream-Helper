@@ -21,6 +21,13 @@
     color: black !important;
 }
 
+.removeMovieProfileIcon {
+   position:absolute;
+   height: 35px;
+   top: 15px;
+   right: 15px;
+}
+
 
 
 /* IPHONE 5  */

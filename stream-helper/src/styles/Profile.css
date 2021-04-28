@@ -47,6 +47,36 @@ display: flex;
         height: -webkit-fill-available;
         width: -webkit-fill-available;
       }
+
+      .profileContentContainer {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: auto;
+        grid-template-areas: 
+        "likedCard"
+        "savedMoviesCard"
+        "editUserCard";
+      }
+      
+   
+
+      .likedMoviesModal {
+        margin-left: 5px;
+        margin-right: 5px;
+        grid-area: likedCard
+      }
+      
+      .savedMoviesModal {
+        margin-left: 5px;
+        margin-right: 5px;
+        grid-area: savedMoviesCard
+      }
+
+      .editUserModal {
+        margin-left: 5px;
+        margin-right: 5px;
+        grid-area: editUserCard
+      }
   
 
     
