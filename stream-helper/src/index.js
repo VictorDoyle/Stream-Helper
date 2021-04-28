@@ -37,7 +37,7 @@ const authMiddleware = new ApolloLink((operation, forward) => {
   return forward(operation);
 });
 
-console.log(Cookies.get(),"========cookies========")
+console.log(Cookies.get("cookie"),"========cookies========")
 
 
 const client = new ApolloClient({
