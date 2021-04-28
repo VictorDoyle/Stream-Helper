@@ -42,9 +42,7 @@ function ProfileMovieCard(props) {
         <h3 className="profileMovieCardTitle">
           <Link to={`/movie/${props.id}`}>{props.title}</Link>
         </h3>
-        <p>{props.description}</p>
-        <h5>{props.vote_average}</h5>
-        <h5>Genre</h5>  
+       
         <div
                   className="removeMovieProfileIcon"
                   onClick={() => {

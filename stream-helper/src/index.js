@@ -26,6 +26,7 @@ const authMiddleware = new ApolloLink((operation, forward) => {
   operation.setContext({
     headers: {
       authorization: Cookies.get("cookie") || null,
+      credentials: "include",
     },
 
     fetchOptions: {
@@ -35,6 +36,9 @@ const authMiddleware = new ApolloLink((operation, forward) => {
 
   return forward(operation);
 });
+
+console.log(Cookies.get(),"========cookies========")
+
 
 const client = new ApolloClient({
   cache: new InMemoryCache({
