@@ -26,7 +26,6 @@
 .landingRightCol {
     grid-area: landingRightCol;
     background-color: black;
-    /* TODO: add minimal color animation inside RightCol  */
 }
 
 .landingPageButton {
@@ -71,9 +70,9 @@
     height: 100%;
 }
 
-/* IPHONE 5  */
+/* low width phones */
 
-@media only screen and (max-device-width : 375px) and (max-height: 570px) {
+@media only screen and (min-device-width: 250px) and (max-device-width : 300px) and (max-height: 700px) {
     body {
         min-height: 100vh;
         min-height: -webkit-fill-available;
@@ -157,10 +156,9 @@
     
 }
 
-/* IPHONE 6/7/8 */
+/* IPHONE 5  */
 
-@media only screen and (min-device-width : 375px) and (min-height: 600px) and (max-height: 768px) {
-
+@media only screen and (min-device-width: 300px) and (max-device-width : 375px) and (max-height: 570px) {
     body {
         min-height: 100vh;
         min-height: -webkit-fill-available;
@@ -168,8 +166,85 @@
       
       html {
         height: -webkit-fill-available;
-        width: -webkit-fill-available;
+        max-width: 320px !important;
       }
+    .landingContentGrid {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: auto;
+        grid-template-areas: 
+          "landingLeftCol"
+          "landingRightCol"
+    }
+    
+    .landingLeftCol {
+        grid-area: landingLeftCol;
+        background-color: whitesmoke;
+    }
+    
+    .landingLeftText {
+       /*  margin-top: 210px; */
+        margin-left: 10%;
+    }
+    
+    .landingRightCol {
+        grid-area: landingRightCol;
+        background-color: black;
+        margin-left: auto;
+        margin-right: auto;
+     
+    }
+    
+    .landingPageButton {
+        margin: 35px;
+    }
+    
+    .landingTitle {
+        font-size: 20px;
+        width: 200px;
+    }
+    
+    .landingSubTitle {
+        font-size: 15px;
+        width: 200px;
+    }
+    
+    .landingPageForm {
+        margin-top: 15px;
+        color: white;
+        width: 200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .landingKnowMore {
+        margin-top: 15% !important;
+        color: black !important;
+    }
+    
+    .infoSign {
+        background-color: whitesmoke;
+        width: 100px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .landingButtonsContainer {
+        max-width: 200px;
+        min-height: 230px !important;
+        
+    }
+
+    .landingPageButton {
+        margin: 10px !important;
+    }
+
+    
+}
+
+/* IPHONE 6/7 */
+
+@media only screen and (min-device-width : 375px) and (min-height: 600px) and (max-height: 768px) {
 
     .landingContentGrid {
         display: grid;
@@ -237,6 +312,12 @@
     }
 
 
+}
+
+
+/* Iphone 8 */
+@media only screen and (device-width : 375px) and (device-height : 667px) and (-webkit-device-pixel-ratio : 2) { 
+    
 }
 
 /* IPHONE X */
